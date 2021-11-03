@@ -6,21 +6,21 @@
 /*   By: jcuche <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 13:51:13 by jcuche            #+#    #+#             */
-/*   Updated: 2021/10/14 14:03:21 by jcuche           ###   ########.fr       */
+/*   Updated: 2021/11/02 18:53:02 by jcuche           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	int		i;
+	char	*oui;
 
-	i = ft_strlen(char *s);
-	while (s[i] >= 0)
-	{
-		if (s[i] == c)
-			return (char *s);
+	oui = (char *)s;
+	i = ft_strlen(oui);
+	while (i > 0 && s[i] != (char)c)
 		i--;
-	}
+	if (s[i] == (char)c)
+		return (&((char *)s)[i]);
 	return (NULL);
 }

@@ -6,12 +6,12 @@
 /*   By: jcuche <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 11:01:01 by jcuche            #+#    #+#             */
-/*   Updated: 2021/10/17 14:50:57 by jcuche           ###   ########.fr       */
+/*   Updated: 2021/10/19 17:12:21 by jcuche           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*a;
 
@@ -20,7 +20,7 @@ void	*memset(void *s, int c, size_t n)
 	{
 		*a = c;
 		a++;
-		len--;
+		n--;
 	}
 	return (s);
 }

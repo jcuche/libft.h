@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcuche <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 16:16:34 by jcuche            #+#    #+#             */
-/*   Updated: 2021/10/21 14:53:12 by jcuche           ###   ########.fr       */
+/*   Created: 2021/10/28 11:41:33 by jcuche            #+#    #+#             */
+/*   Updated: 2021/11/02 19:18:24 by jcuche           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	a;
-	size_t	b;
-	char	*result;
+	char	c;
 
-	result = (char *) haystack;
-	b = 0;
-	if (ft_strlen(needle) == 0)
-		return (result);
-	while (result[b] != '\0' && len >= ft_strlen(needle))
+	if (n == -2147483648)
 	{
-		a = 0;
-		while (result[b + a] == needle[a]
-			&& result[b + a] != '\0' && needle[a] != '\0')
-			a++;
-		if (needle[a] == '\0')
-			return (&result[b]);
-		b++;
-		len--;
+		ft_putstr_fd("-2147483648", fd);
+		return ;
 	}
-	return (NULL);
-}
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n *= -1;
+	}
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd);
+	c = n % 10 + '0';
+	ft_putchar_fd(c, fd);
+}	
